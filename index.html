@@ -185,16 +185,16 @@ html[lang="pt-BR"] .hero-cta__icon { display: block; }
   flex-shrink: 0;
   transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.3s var(--ease);
 }
-.round-arrow svg { width: 18px; height: 18px; transition: transform 0.3s var(--ease); }
-.project-card:hover .round-arrow,
-.project-card:focus-visible .round-arrow { background: var(--color-ink); color: var(--color-white); }
+.round-arrow svg { width: 18px; height: 18px; transform: rotate(45deg); transition: transform 0.3s var(--ease); }
+.project-card:hover .round-arrow svg,
+.project-card:focus-visible .round-arrow svg { transform: rotate(45deg) translate(1px, -1px); }
 .project-card:hover .round-arrow svg,
 .project-card:focus-visible .round-arrow svg { transform: translate(1px, -1px); }
 
 /* ===== Services (accordion) ===== */
 .services { padding: 120px 0; }
 .services-list { display: flex; flex-direction: column; gap: 12px; }
-.service-item { border-bottom: 1px solid var(--color-ink); }
+.service-item { border-bottom: 1px solid #F0F0F0; }
 
 .service-trigger {
   width: 100%;
