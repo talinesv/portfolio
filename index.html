@@ -717,8 +717,11 @@ html[lang="pt-BR"] .hero-cta__icon { display: block; }
      CONFIG — isolated, clearly-identifiable placeholders.
      Replace these as real assets/URLs become available.
   ----------------------------------------------------------------*/
-  var CONFIG = {
-    resumeUrl: 'assets/resume-taline-velasques.pdf', // TODO: replace with the real résumé PDF URL
+var CONFIG = {
+  resumeUrl: {
+    en: 'taline-velasques-cv-ENG.pdf',
+    pt: 'taline-velasques-cv-PT.pdf'
+  },
     projectUrls: {
       dmcc:   '#project-dmcc',   // TODO: replace with real case-study/Behance URL
       danone: '#project-danone', // TODO: replace with real case-study/Behance URL
@@ -726,8 +729,11 @@ html[lang="pt-BR"] .hero-cta__icon { display: block; }
     }
   };
 
-  var resumeLink = document.getElementById('resume-link');
-  if (resumeLink) resumeLink.setAttribute('href', CONFIG.resumeUrl);
+var resumeLink = document.getElementById('resume-link');
+function updateResumeLink(lang) {
+  if (resumeLink) resumeLink.setAttribute('href', CONFIG.resumeUrl[lang]);
+}
+updateResumeLink('en');
 
   var dmccCard = document.getElementById('project-dmcc');
   if (dmccCard) dmccCard.setAttribute('href', CONFIG.projectUrls.dmcc);
@@ -974,6 +980,7 @@ html[lang="pt-BR"] .hero-cta__icon { display: block; }
 
     currentLang = lang;
     applyTranslations(lang);
+    updateResumeLink(lang);
 
     var isPt = lang === 'pt';
     langEnBtn.classList.toggle('is-active', !isPt);
